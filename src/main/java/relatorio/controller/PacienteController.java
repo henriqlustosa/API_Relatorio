@@ -13,7 +13,7 @@ import java.util.List;
 @RequestMapping("/hspmsgh-api/relatorio/pacientes")
 public class PacienteController {
 	@GetMapping("/{prontuarioId}")
-	public ResponseEntity<List<Paciente>> getPacientePorProntuario(@PathVariable String prontuarioId){
+	public ResponseEntity<List<Paciente>> getPacientePorData(@PathVariable String prontuarioId){
 		
 		List<Paciente> pacientes = PacienteDto.pacientes(prontuarioId);	
 		

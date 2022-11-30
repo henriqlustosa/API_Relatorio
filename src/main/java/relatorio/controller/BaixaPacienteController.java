@@ -8,21 +8,20 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import relatorio.dto.FichaPacienteDto;
-import relatorio.model.FichaPaciente;
-
+import relatorio.dto.BaixaPacienteDto;
+import relatorio.model.BaixaPaciente;
 @RestController
-@RequestMapping("/hspmsgh-api/relatorio/fichapacientes")
-public class FichaPacienteController {
+@RequestMapping("/hspmsgh-api/relatorio/baixapacientes")
+public class BaixaPacienteController {
 	@GetMapping("/{prontuarioId}")
-	public ResponseEntity<List<FichaPaciente>> getFichaPacientePorData(@PathVariable String prontuarioId){
+	public ResponseEntity<List<BaixaPaciente>> getBaixaPacientePorData(@PathVariable String prontuarioId){
 		
-		List<FichaPaciente> fichas = FichaPacienteDto.fichapacientes(prontuarioId);	
+		List<BaixaPaciente> baixas = BaixaPacienteDto.baixapacientes(prontuarioId);	
 		
 		//if(paciente.getCd_prontuario() == null) {
 			//return ResponseEntity.notFound().build();			
 		//}
-		return ResponseEntity.ok(fichas); 
+		return ResponseEntity.ok(baixas); 
 	}
 
 }

@@ -8,21 +8,22 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import relatorio.dto.FichaPacienteDto;
-import relatorio.model.FichaPaciente;
-
+import relatorio.dto.ProfissionalDto;
+import relatorio.model.Profissional;
 @RestController
-@RequestMapping("/hspmsgh-api/relatorio/fichapacientes")
-public class FichaPacienteController {
+@RequestMapping("/hspmsgh-api/relatorio/profissionais")
+public class ProfissionalController {
+	
 	@GetMapping("/{prontuarioId}")
-	public ResponseEntity<List<FichaPaciente>> getFichaPacientePorData(@PathVariable String prontuarioId){
+	public ResponseEntity<List<Profissional>> getProfissionalPorData(@PathVariable String prontuarioId){
 		
-		List<FichaPaciente> fichas = FichaPacienteDto.fichapacientes(prontuarioId);	
+		List<Profissional> profissionais = ProfissionalDto.profissionais(prontuarioId);	
 		
 		//if(paciente.getCd_prontuario() == null) {
 			//return ResponseEntity.notFound().build();			
 		//}
-		return ResponseEntity.ok(fichas); 
+		return ResponseEntity.ok(profissionais); 
 	}
+
 
 }
