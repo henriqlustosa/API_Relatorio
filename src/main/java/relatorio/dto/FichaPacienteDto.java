@@ -11,14 +11,14 @@ import relatorio.persistence.Conexao;
 
 public class FichaPacienteDto {
 	
-public static ArrayList<FichaPaciente> fichapacientes(String _prontuario) {
+public static ArrayList<FichaPaciente> fichapacientes(String dataInicial, String dataFinal) {
 		
 		ArrayList<FichaPaciente> fichas = new ArrayList<FichaPaciente>();
 		PreparedStatement preparedStatement;
 		try {
-			String sqlString = "SELECT  num_consulta, data_consulta, setor, origem_paciente, queixa,informacoes_complementares, usuario, status_ficha, prontuario\r\n"
+			String sqlString = "SELECT  con_numero, data_consulta, agenda, origem_paciente, queixa,informacoes_complementares, usuario, status_ficha, prontuario, data_mvto\r\n"
 					+ "FROM agh.v_mam_pac_ficha\r\n"
-					+ "WHERE data_consulta::date = '" + _prontuario + "'" ;
+					+ "WHERE data_consulta::date BETWEEN '" + dataInicial + "'and '" +dataFinal   + "'";
 			Connection conn = new Conexao().getConnection();
 			preparedStatement = conn.prepareStatement(sqlString);
 			ResultSet resultSet = preparedStatement.executeQuery();
@@ -26,15 +26,16 @@ public static ArrayList<FichaPaciente> fichapacientes(String _prontuario) {
 			while (resultSet.next()) {
 				
 				FichaPaciente fichaPaciente = new FichaPaciente();
-				fichaPaciente.setCod_consulta(resultSet.getLong("num_consulta"));
+				fichaPaciente.setCod_consulta(resultSet.getLong("con_numero"));
 				fichaPaciente.setDt_consulta(resultSet.getString("data_consulta"));
-				fichaPaciente.setSetor(resultSet.getString("setor"));
+				fichaPaciente.setSetor(resultSet.getString("agenda"));
 				fichaPaciente.setOrigem_paciente(resultSet.getString("origem_paciente"));
 				fichaPaciente.setQueixa(resultSet.getString("queixa"));
 				fichaPaciente.setInfo_complementares(resultSet.getString("informacoes_complementares"));
 				fichaPaciente.setUsuario(resultSet.getString("usuario"));
 				fichaPaciente.setStatus_ficha(resultSet.getString("status_ficha"));
 				fichaPaciente.setProntuario(resultSet.getLong("prontuario"));
+				fichaPaciente.setData_mvto(resultSet.getString("data_mvto"));
 		
 				fichas.add(fichaPaciente);
 

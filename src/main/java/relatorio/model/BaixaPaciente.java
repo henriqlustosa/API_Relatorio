@@ -3,54 +3,74 @@ package relatorio.model;
 import java.util.Objects;
 
 public class BaixaPaciente {
+	private Long con_numero;
+	private Long  prontuario;
+    private Long trg_seq;
+	private Long seqp;
+	private String data_consulta;
+	private Integer cod_status;
+	private String status_ficha;
+	private String usuario;
+	private String data_mvto;
 	
-	
-	private Long cod_baixa;
-	private Long  cod_consulta;
-	private String status;
-	private Long rf;
-	private String dthr_baixa;
-	private String observacao;
-
-	public Long getCod_baixa() {
-		return cod_baixa;
+	public Long getCon_numero() {
+		return con_numero;
 	}
-	public void setCod_baixa(Long cod_baixa) {
-		this.cod_baixa = cod_baixa;
+	public void setCon_numero(Long con_numero) {
+		this.con_numero = con_numero;
 	}
-	public Long getCod_consulta() {
-		return cod_consulta;
+	public Long getProntuario() {
+		return prontuario;
 	}
-	public void setCod_consulta(Long cod_consulta) {
-		this.cod_consulta = cod_consulta;
+	public void setProntuario(Long prontuario) {
+		this.prontuario = prontuario;
 	}
-	public String getStatus() {
-		return status;
+	public Long getTrg_seq() {
+		return trg_seq;
 	}
-	public void setStatus(String status) {
-		this.status = status;
+	public void setTrg_seq(Long trg_seq) {
+		this.trg_seq = trg_seq;
 	}
-	public Long getRf() {
-		return rf;
+	public Long getSeqp() {
+		return seqp;
 	}
-	public void setRf(Long rf) {
-		this.rf = rf;
+	public void setSeqp(Long seqp) {
+		this.seqp = seqp;
 	}
-	public String getDthr_baixa() {
-		return dthr_baixa;
+	public String getData_consulta() {
+		return data_consulta;
 	}
-	public void setDthr_baixa(String dthr_baixa) {
-		this.dthr_baixa = dthr_baixa;
+	public void setData_consulta(String data_consulta) {
+		this.data_consulta = data_consulta;
 	}
-	public String getObservacao() {
-		return observacao;
+	public Integer getCod_status() {
+		return cod_status;
 	}
-	public void setObservacao(String observacao) {
-		this.observacao = observacao;
+	public void setCod_status(Integer cod_status) {
+		this.cod_status = cod_status;
+	}
+	public String getStatus_ficha() {
+		return status_ficha;
+	}
+	public void setStatus_ficha(String status_ficha) {
+		this.status_ficha = status_ficha;
+	}
+	public String getUsuario() {
+		return usuario;
+	}
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
+	public String getData_mvto() {
+		return data_mvto;
+	}
+	public void setData_mvto(String data_mvto) {
+		this.data_mvto = data_mvto;
 	}
 	@Override
 	public int hashCode() {
-		return Objects.hash(cod_baixa, cod_consulta, dthr_baixa, rf, observacao, status);
+		return Objects.hash(cod_status, con_numero, data_consulta, data_mvto, prontuario, seqp, status_ficha, trg_seq,
+				usuario);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -61,11 +81,15 @@ public class BaixaPaciente {
 		if (getClass() != obj.getClass())
 			return false;
 		BaixaPaciente other = (BaixaPaciente) obj;
-		return Objects.equals(cod_baixa, other.cod_baixa) && Objects.equals(cod_consulta, other.cod_consulta)
-				&& Objects.equals(dthr_baixa, other.dthr_baixa)
-				&& Objects.equals(rf, other.rf)
-				&& Objects.equals(observacao, other.observacao) && Objects.equals(status, other.status);
+		return Objects.equals(cod_status, other.cod_status) && Objects.equals(con_numero, other.con_numero)
+				&& Objects.equals(data_consulta, other.data_consulta) && Objects.equals(data_mvto, other.data_mvto)
+				&& Objects.equals(prontuario, other.prontuario) && Objects.equals(seqp, other.seqp)
+				&& Objects.equals(status_ficha, other.status_ficha) && Objects.equals(trg_seq, other.trg_seq)
+				&& Objects.equals(usuario, other.usuario);
 	}
+
+
+	
 	
 
 }

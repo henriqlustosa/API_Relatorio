@@ -12,10 +12,10 @@ import java.util.List;
 @RestController
 @RequestMapping("/hspmsgh-api/relatorio/pacientes")
 public class PacienteController {
-	@GetMapping("/{prontuarioId}")
-	public ResponseEntity<List<Paciente>> getPacientePorData(@PathVariable String prontuarioId){
+	@GetMapping("/{dataInicial}/{dataFinal}")
+	public ResponseEntity<List<Paciente>> getPacientePorData(@PathVariable String dataInicial,@PathVariable String dataFinal){
 		
-		List<Paciente> pacientes = PacienteDto.pacientes(prontuarioId);	
+		List<Paciente> pacientes = PacienteDto.pacientes(dataInicial,dataFinal);	
 		
 		//if(paciente.getCd_prontuario() == null) {
 			//return ResponseEntity.notFound().build();			

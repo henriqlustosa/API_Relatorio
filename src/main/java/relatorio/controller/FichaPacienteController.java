@@ -14,10 +14,10 @@ import relatorio.model.FichaPaciente;
 @RestController
 @RequestMapping("/hspmsgh-api/relatorio/fichapacientes")
 public class FichaPacienteController {
-	@GetMapping("/{prontuarioId}")
-	public ResponseEntity<List<FichaPaciente>> getFichaPacientePorData(@PathVariable String prontuarioId){
+	@GetMapping("/{dataInicial}/{dataFinal}")
+	public ResponseEntity<List<FichaPaciente>> getFichaPacientePorData(@PathVariable String dataInicial,@PathVariable String dataFinal){
 		
-		List<FichaPaciente> fichas = FichaPacienteDto.fichapacientes(prontuarioId);	
+		List<FichaPaciente> fichas = FichaPacienteDto.fichapacientes(dataInicial,dataFinal);	
 		
 		//if(paciente.getCd_prontuario() == null) {
 			//return ResponseEntity.notFound().build();			

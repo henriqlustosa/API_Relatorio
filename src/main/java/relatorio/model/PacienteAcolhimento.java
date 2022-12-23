@@ -2,7 +2,8 @@ package relatorio.model;
 
 import java.util.Objects;
 
-public class Paciente {
+public class PacienteAcolhimento {
+	
 	private Long prontuario;
 	private String nomePaciente;
 	private String dataNascimento;
@@ -14,11 +15,9 @@ public class Paciente {
 	private String raca;
 	private String mae;
 	private String pai;
-	private String responsavel;
 	private String email;
 	private String tipoPaciente;
 	private String rf;
-	
 	private String ddd_foneResidencial;
 	private String ddd_foneComercial;
 	private String ddd_foneRecado;
@@ -110,12 +109,7 @@ public class Paciente {
 	public void setPai(String pai) {
 		this.pai = pai;
 	}
-	public String getResponsavel() {
-		return responsavel;
-	}
-	public void setResponsavel(String responsavel) {
-		this.responsavel = responsavel;
-	}
+	
 	public String getEmail() {
 		return email;
 	}
@@ -143,6 +137,7 @@ public class Paciente {
 	public String getFoneComercial() {
 		return foneComercial;
 	}
+	
 	public void setFoneComercial(String foneComercial) {
 		this.foneComercial = foneComercial;
 	}
@@ -155,8 +150,8 @@ public class Paciente {
 	@Override
 	public int hashCode() {
 		return Objects.hash(cns, cpf, dataNascimento, ddd_foneComercial, ddd_foneRecado, ddd_foneResidencial, email,
-				foneComercial, foneRecado, foneResidencial, idade, mae, nomePaciente, pai, prontuario, raca,
-				responsavel, rf, rg, sexo, tipoPaciente);
+				foneComercial, foneRecado, foneResidencial, idade, mae, nomePaciente, pai, prontuario, raca, rf, rg,
+				sexo, tipoPaciente);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -166,7 +161,7 @@ public class Paciente {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Paciente other = (Paciente) obj;
+		PacienteAcolhimento other = (PacienteAcolhimento) obj;
 		return Objects.equals(cns, other.cns) && Objects.equals(cpf, other.cpf)
 				&& Objects.equals(dataNascimento, other.dataNascimento)
 				&& Objects.equals(ddd_foneComercial, other.ddd_foneComercial)
@@ -176,13 +171,12 @@ public class Paciente {
 				&& Objects.equals(foneResidencial, other.foneResidencial) && Objects.equals(idade, other.idade)
 				&& Objects.equals(mae, other.mae) && Objects.equals(nomePaciente, other.nomePaciente)
 				&& Objects.equals(pai, other.pai) && Objects.equals(prontuario, other.prontuario)
-				&& Objects.equals(raca, other.raca) && Objects.equals(responsavel, other.responsavel)
-				&& Objects.equals(rf, other.rf) && Objects.equals(rg, other.rg) && Objects.equals(sexo, other.sexo)
-				&& Objects.equals(tipoPaciente, other.tipoPaciente);
+				&& Objects.equals(raca, other.raca) && Objects.equals(rf, other.rf) && Objects.equals(rg, other.rg)
+				&& Objects.equals(sexo, other.sexo) && Objects.equals(tipoPaciente, other.tipoPaciente);
 	}
+
 
 	
 	
-	
-         
+
 }

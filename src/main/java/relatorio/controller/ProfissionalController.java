@@ -14,10 +14,10 @@ import relatorio.model.Profissional;
 @RequestMapping("/hspmsgh-api/relatorio/profissionais")
 public class ProfissionalController {
 	
-	@GetMapping("/{prontuarioId}")
-	public ResponseEntity<List<Profissional>> getProfissionalPorData(@PathVariable String prontuarioId){
+	@GetMapping("/{dataInicial}/{dataFinal}")
+	public ResponseEntity<List<Profissional>> getProfissionalPorData(@PathVariable String dataInicial,@PathVariable String dataFinal){
 		
-		List<Profissional> profissionais = ProfissionalDto.profissionais(prontuarioId);	
+		List<Profissional> profissionais = ProfissionalDto.profissionais(dataInicial,dataFinal);	
 		
 		//if(paciente.getCd_prontuario() == null) {
 			//return ResponseEntity.notFound().build();			
