@@ -13,8 +13,14 @@ public class FichaPaciente {
 	private String usuario;
 	private String  status_ficha;
 	private Long prontuario;
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 	private String data_mvto;
-	
+	private String  nome;
 
 	
 	public Long getCod_consulta() {
@@ -79,8 +85,8 @@ public class FichaPaciente {
 	}
 	@Override
 	public int hashCode() {
-		return Objects.hash(cod_consulta, data_mvto, dt_consulta, info_complementares, origem_paciente, prontuario,
-				queixa, setor, status_ficha, usuario);
+		return Objects.hash(cod_consulta, data_mvto, dt_consulta, info_complementares, nome, origem_paciente,
+				prontuario, queixa, setor, status_ficha, usuario);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -93,14 +99,12 @@ public class FichaPaciente {
 		FichaPaciente other = (FichaPaciente) obj;
 		return Objects.equals(cod_consulta, other.cod_consulta) && Objects.equals(data_mvto, other.data_mvto)
 				&& Objects.equals(dt_consulta, other.dt_consulta)
-				&& Objects.equals(info_complementares, other.info_complementares)
+				&& Objects.equals(info_complementares, other.info_complementares) && Objects.equals(nome, other.nome)
 				&& Objects.equals(origem_paciente, other.origem_paciente)
 				&& Objects.equals(prontuario, other.prontuario) && Objects.equals(queixa, other.queixa)
 				&& Objects.equals(setor, other.setor) && Objects.equals(status_ficha, other.status_ficha)
 				&& Objects.equals(usuario, other.usuario);
 	}
-	
-	
 	
 	
 

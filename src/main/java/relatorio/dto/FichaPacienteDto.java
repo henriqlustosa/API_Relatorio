@@ -16,7 +16,7 @@ public static ArrayList<FichaPaciente> fichapacientes(String dataInicial, String
 		ArrayList<FichaPaciente> fichas = new ArrayList<FichaPaciente>();
 		PreparedStatement preparedStatement;
 		try {
-			String sqlString = "SELECT  con_numero, data_consulta, agenda, origem_paciente, queixa,informacoes_complementares, usuario, status_ficha, prontuario, data_mvto\r\n"
+			String sqlString = "SELECT  con_numero, data_consulta, agenda, origem_paciente, queixa,informacoes_complementares, usuario, status_ficha, prontuario, data_mvto, nome\r\n"
 					+ "FROM agh.v_mam_pac_ficha\r\n"
 					+ "WHERE data_consulta::date BETWEEN '" + dataInicial + "'and '" +dataFinal   + "'";
 			Connection conn = new Conexao().getConnection();
@@ -36,6 +36,7 @@ public static ArrayList<FichaPaciente> fichapacientes(String dataInicial, String
 				fichaPaciente.setStatus_ficha(resultSet.getString("status_ficha"));
 				fichaPaciente.setProntuario(resultSet.getLong("prontuario"));
 				fichaPaciente.setData_mvto(resultSet.getString("data_mvto"));
+				fichaPaciente.setNome(resultSet.getString("nome"));
 		
 				fichas.add(fichaPaciente);
 

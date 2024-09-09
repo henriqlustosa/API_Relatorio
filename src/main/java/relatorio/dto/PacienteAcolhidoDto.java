@@ -18,7 +18,7 @@ public static ArrayList<PacienteAcolhimento> pacientesAcolhidos(String dataInici
 		try {
 			String sqlString = "SELECT  prontuario, nome, data_nascimento, cns, rg, cpf, sexo , idade, raca, nome_mae, nome_pai, email, tipo_paciente, rf_paciente,ddd_fone_residencial ,fone_residencial,ddd_fone_comercial, fone_comercial,ddd_fone_recado, fone_recado\r\n"
 					+ "FROM agh.v_mam_pac_acolhimento\r\n"
-					+ "WHERE data_acolhimento::date between '" + dataInicial + "'and '" +dataFinal +  "' and prontuario is not null group by prontuario, nome, data_nascimento, cns, rg, cpf, sexo , idade, raca, nome_mae, nome_pai, email, tipo_paciente, rf_paciente,ddd_fone_residencial ,fone_residencial,ddd_fone_comercial, fone_comercial,ddd_fone_recado, fone_recado " ;
+					+ "WHERE data_acolhimento::date between '" + dataInicial + "'and '" +dataFinal +  "' group by prontuario, nome, data_nascimento, cns, rg, cpf, sexo , idade, raca, nome_mae, nome_pai, email, tipo_paciente, rf_paciente,ddd_fone_residencial ,fone_residencial,ddd_fone_comercial, fone_comercial,ddd_fone_recado, fone_recado " ;
 			Connection conn = new Conexao().getConnection();
 			preparedStatement = conn.prepareStatement(sqlString);
 			ResultSet resultSet = preparedStatement.executeQuery();
@@ -40,7 +40,10 @@ public static ArrayList<PacienteAcolhimento> pacientesAcolhidos(String dataInici
 				paciente.setPai(resultSet.getString("nome_pai"));
 				paciente.setEmail(resultSet.getString("email"));
 				paciente.setTipoPaciente(resultSet.getString("tipo_paciente"));
-				paciente.setRf(resultSet.getString("rf_paciente"));
+				
+
+		
+				paciente.setRf(resultSet.getString("rf_paciente") != null ? resultSet.getString("rf_paciente").replaceAll("[^0-9]", ""): "0");
 				paciente.setDdd_foneResidencial(resultSet.getString("ddd_fone_residencial"));
 				paciente.setFoneResidencial(resultSet.getString("fone_residencial"));
 				paciente.setDdd_foneComercial(resultSet.getString("ddd_fone_comercial"));

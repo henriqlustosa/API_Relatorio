@@ -3,16 +3,19 @@ package relatorio.model;
 import java.util.Objects;
 
 public class BaixaPaciente {
-	private Long con_numero;
-	private Long  prontuario;
-    private Long trg_seq;
-	private Long seqp;
-	private String data_consulta;
-	private Integer cod_status;
-	private String status_ficha;
-	private String usuario;
-	private String data_mvto;
+		private Long  prontuario;
+		private Long con_numero;
+		private Long trg_seq;
+		private Long seqp;
+		private String data_consulta;
+		private Integer cod_status;
+		private String status_ficha;
+		private String usuario;
+		private String data_mvto;
+		
+
 	
+
 	public Long getCon_numero() {
 		return con_numero;
 	}
@@ -87,6 +90,8 @@ public class BaixaPaciente {
 				&& Objects.equals(status_ficha, other.status_ficha) && Objects.equals(trg_seq, other.trg_seq)
 				&& Objects.equals(usuario, other.usuario);
 	}
+	
+	
 
 
 	

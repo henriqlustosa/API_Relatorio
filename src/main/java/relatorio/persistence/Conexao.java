@@ -12,7 +12,7 @@ public Connection getConnection() {
         //String senha = "pwd_hspm_acesso";
 		
 		//Desenvolvimento
-        //String url = "jdbc:postgresql://pg019dbsrv.prodam:5432/hm0615_hspm";
+       	//String url = "jdbc:postgresql://pg019dbsrv.prodam:5432/hm0615_hspm";
 		//String usuario = "hm0615_hspm";
 		//String senha = "pwd_hm0615_hspm";
 
@@ -22,8 +22,8 @@ public Connection getConnection() {
         //String senha = "pwd_hspm_acesso";
         
         //Producao Atual
-        String url = "jdbc:postgresql://pg023dbsrv.prodam:5432/hm0615_hspm";
-        String usuario = "hspm_acesso";
+       	String url = "jdbc:postgresql://pg023dbsrv.prodam:5432/hm0615_hspm";
+       	String usuario = "hspm_acesso";
      	String senha = "pwd_hspm_acesso";
 
 		Connection result = null;

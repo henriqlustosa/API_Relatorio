@@ -36,6 +36,7 @@ public static ArrayList<BaixaPaciente> baixapacientes(String dataInicial, String
 				baixaPaciente.setData_mvto(resultSet.getString("data_mvto"));
 			
 			
+			
 				
 			
 				baixas.add(baixaPaciente);
