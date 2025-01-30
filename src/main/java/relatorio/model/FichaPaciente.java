@@ -13,6 +13,7 @@ public class FichaPaciente {
 	private String usuario;
 	private String  status_ficha;
 	private Long prontuario;
+	private Long anterior;
 	public String getNome() {
 		return nome;
 	}
@@ -83,9 +84,16 @@ public class FichaPaciente {
 	public void setData_mvto(String data_mvto) {
 		this.data_mvto = data_mvto;
 	}
+	
+	public Long getAnterior() {
+		return anterior;
+	}
+	public void setAnterior(Long anterior) {
+		this.anterior = anterior;
+	}
 	@Override
 	public int hashCode() {
-		return Objects.hash(cod_consulta, data_mvto, dt_consulta, info_complementares, nome, origem_paciente,
+		return Objects.hash(anterior,cod_consulta, data_mvto, dt_consulta, info_complementares, nome, origem_paciente,
 				prontuario, queixa, setor, status_ficha, usuario);
 	}
 	@Override
@@ -97,7 +105,7 @@ public class FichaPaciente {
 		if (getClass() != obj.getClass())
 			return false;
 		FichaPaciente other = (FichaPaciente) obj;
-		return Objects.equals(cod_consulta, other.cod_consulta) && Objects.equals(data_mvto, other.data_mvto)
+		return Objects.equals(anterior, other.anterior) && Objects.equals(cod_consulta, other.cod_consulta) && Objects.equals(data_mvto, other.data_mvto)
 				&& Objects.equals(dt_consulta, other.dt_consulta)
 				&& Objects.equals(info_complementares, other.info_complementares) && Objects.equals(nome, other.nome)
 				&& Objects.equals(origem_paciente, other.origem_paciente)
