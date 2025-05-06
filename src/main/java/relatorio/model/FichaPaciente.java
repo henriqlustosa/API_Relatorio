@@ -14,6 +14,7 @@ public class FichaPaciente {
 	private String  status_ficha;
 	private Long prontuario;
 	private Long anterior;
+	private String  data_nascimento;
 	public String getNome() {
 		return nome;
 	}
@@ -91,10 +92,17 @@ public class FichaPaciente {
 	public void setAnterior(Long anterior) {
 		this.anterior = anterior;
 	}
+	
+	public String getData_nascimento() {
+		return data_nascimento;
+	}
+	public void setData_nascimento(String data_nascimento) {
+		this.data_nascimento = data_nascimento;
+	}
 	@Override
 	public int hashCode() {
 		return Objects.hash(anterior,cod_consulta, data_mvto, dt_consulta, info_complementares, nome, origem_paciente,
-				prontuario, queixa, setor, status_ficha, usuario);
+				prontuario, queixa, setor, status_ficha, usuario, data_nascimento);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -111,7 +119,7 @@ public class FichaPaciente {
 				&& Objects.equals(origem_paciente, other.origem_paciente)
 				&& Objects.equals(prontuario, other.prontuario) && Objects.equals(queixa, other.queixa)
 				&& Objects.equals(setor, other.setor) && Objects.equals(status_ficha, other.status_ficha)
-				&& Objects.equals(usuario, other.usuario);
+				&& Objects.equals(usuario, other.usuario)  && Objects.equals(data_nascimento, other.data_nascimento);
 	}
 	
 	
